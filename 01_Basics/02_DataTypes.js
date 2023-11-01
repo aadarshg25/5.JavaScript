@@ -8,7 +8,7 @@ let isLogged = true;
 
 // number => range 2 to power 53
 // bigint => for big integers
-//String  => ""
+//string  => ""
 //boolean => true/false
 //null = > standalone value (empty value)
 //undefined => abhi value assign nhi hui hain
