@@ -3,6 +3,11 @@ let email = "harrypotter@new.com"
 var acccountPassword = "12346"
 acccountCity = "Jaipur"
 let acccountState;
+
+const id = Symbol("123");
+const anotherId = Symbol("123");
+
+console.log(id === anotherId) // As both are unique 
 // acccountId = 216655 //Not Allowed
 
 /*
