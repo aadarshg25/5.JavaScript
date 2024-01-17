@@ -53,3 +53,18 @@ const obj4 = Object.assign(obj1,obj2)
 //2. using spread operator
 const obj5 = {...obj1,...obj2}
 //console.log(obj5); //{ a: 1, b: 2, c: 3, d: 4 }
+
+//When we want to access the values of objects multiple times its a tedious tsak to write objectName.KeyName again and again
+//hence in these cases we use "Object Destructuring"
+
+const course = {
+    courseName : "Js in Hindi",
+    price : 999,
+    courseInstructor : "hitesh"
+}
+
+const {courseName} = course; // now after doing destructing we can use it as a free variable type
+console.log(courseName); //Js in Hindi
+
+const {courseName : name1,price : money,courseInstructor : teacher} = course; // we can also spcify our newNaame we want to use
+console.log(name1 , money , teacher );
