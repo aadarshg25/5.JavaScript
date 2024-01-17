@@ -28,6 +28,7 @@ const combinedArr1_2 = [...myArr1,...myArr2];
 //    10, 11, 12, 13
 // ]
 
+//In both techn. if array elements are same it will add them as it is ex: [1,2,3,1,2,3]
 
 //Now in some cases we are given a confusing array(ajjeb)
 const myArr = [1,2,[3,6,5,8],[1,[2,[3]]],2,5,8,7]

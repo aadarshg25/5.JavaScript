@@ -1,5 +1,7 @@
 //There are two ways to declare an objects 
 
+//Both methods of declaring objects produces same results and have no diff, except for singleton and non-singleton
+
 //1.By constructor(singelton) //Object.create
 
 //2.By object Literal(not singelton) 
