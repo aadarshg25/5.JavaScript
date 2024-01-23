@@ -12,12 +12,13 @@ coding.forEach(function (element,index,arr){  // it brings us the element itself
 
 //2.
 coding.forEach((item)=>{
-    //console.log(item); // js py java csharp
+    console.log(item); // js py java csharp
+   // return item; // does not return anything
 })
 
 //3.
 function printMe(item){ 
-    console.log(item); // same reult
+    //console.log(item); // same reult
 }
 
 //coding.forEach(printMe) // we have to give referene if are defining outside
@@ -41,6 +42,6 @@ const myCoding = [
 
 myCoding.forEach((item)=>{
     for(const key in item){
-        console.log(key +  " : " + item[key]);
+        //console.log(key +  " : " + item[key]);
     }
 })
