@@ -36,6 +36,8 @@ buttons.forEach((button)=>{
 ```
 
 ## project 2
+
+
 ```javascript
   // we need to take the whole form cause the action we want to perform is submit
 const form = document.querySelector("form");
@@ -74,4 +76,29 @@ form.addEventListener("submit", function (e){
 
 })
 
+```
+
+## project 3 
+
+```javascript
+const clock  = document.querySelector("#clock");
+
+// for getting the updated date we have methods of Date object
+// let date = new Date();
+// console.log(date.toLocaleTimeString())
+
+// But want to update every second and show us as our clock (Check below)
+setInterval(function (){
+  let date = new Date();
+  clock.innerHTML = date.toLocaleTimeString();
+},1000)
+
+
+
+
+// The setInterval() method calls a function at specified intervals (in milliseconds).
+
+// The setInterval() method continues calling the function until clearInterval() is called, or the window is closed.
+
+// 1 second = 1000 milliseconds.
 ```
