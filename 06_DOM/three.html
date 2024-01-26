@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creation of elements</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const div = document.createElement("div");
+    div.className = "newClass"
+    div.id = "newID"
+
+    // for creating custom attributes
+    div.setAttribute("title","customAttribute")
+    div.style.backgroundColor = "green"
+    div.style.padding = "20px"
+
+    // div.innerHTML = "I am inner Text"
+    // all the .inner,.classNmae we are using takes 2 roundtrip and overrides the code
+    // whereas the setattribute directly sets the attributr
+
+    console.log(div);
+
+    //for cretaion of new textNode
+    const addtext = document.createTextNode("I am the newly generated text node");
+    // now we need to append this child node in our div
+    div.appendChild(addtext);
+
+    //The above all code is in  memory we have not yet attacted this div on our HTML page to show it
+    document.body.appendChild(div)
+
+</script>
+</html>
