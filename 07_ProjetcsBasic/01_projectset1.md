@@ -102,3 +102,123 @@ setInterval(function (){
 
 // 1 second = 1000 milliseconds.
 ```
+
+## project 4 
+
+```javascript
+// const randomNumber = Math.floor((Math.random() *100)+1);
+//console.log(randomNumber)
+
+let randomNumber = parseInt((Math.random() *100)+1);
+
+const submit = document.querySelector("#subt")
+const userInput = document.querySelector("#guessField")
+const guessSlot = document.querySelector(".guesses")
+const remaning  = document.querySelector(".lastResult")
+const lowOrHi  = document.querySelector(".lowOrHi")
+const startOver  = document.querySelector(".resultParas")
+
+const p = document.createElement("p");
+
+//Now lets make a array which stores the users guesses
+let prevGuess = [];
+let numGuess = 1 ; // to limit him from guessing
+
+// A counter for playing game
+let playGame = true ;
+
+//Task 0 : check if player is eligible to play game or not
+if(playGame){
+  //Then our sumbit button have to listen
+  submit.addEventListener("click",(e)=>{
+    e.preventDefault();
+    const guess = parseInt(userInput.value);
+    validateGuess(guess);
+  })
+}
+
+//Task 1 : To check if the given guess is a valid input or not
+function validateGuess(guess){
+
+  if(guess < 1 || guess > 100 || isNaN(guess)){ // guess === "" --> isNaN covers this
+    alert("Please enter a valid number !")
+  }
+  //Task 1.1 : To check if the game is still on or not
+  else{  
+    prevGuess.push(guess);
+    if(numGuess === 11){
+      displayGuess(guess);
+      displayMessage(`Game Over . Random number was ${randomNumber}`);
+      endGame();
+    }
+    else{
+      displayGuess(guess);
+      checkGuess(guess);
+    }
+
+  }
+}
+
+// Task 2 : To check the guess is correct or not
+function checkGuess(guess){
+  if(guess === randomNumber){
+    displayMessage(`You guessed it right`);
+    endGame();
+  }
+  else if(guess < randomNumber){
+    displayMessage(`Your guess is TOOO low `);
+  }
+  else if(guess > randomNumber){
+    displayMessage(`Your guess is TOOO high`);
+  }
+}
+
+//Task 2.1 : To display the guess : This  contains the cleanUp Code
+function displayGuess(guess){
+  userInput.value = "";
+  guessSlot.innerHTML += `${guess}  `;
+  numGuess++;
+  remaning.innerHTML = `${11 - numGuess}`
+}
+//Task 2.2 : To display the message for too low or high
+function displayMessage(message){
+  lowOrHi.innerHTML =  `<h2>${message}</h2>` 
+}
+
+//Task 3 : for ending Game
+function endGame(){
+  userInput.value = "";
+  userInput.setAttribute("disabled" ,"") ; // as it takes two input
+  submit.setAttribute("disabled" ,"");
+
+  p.classList.add("button");
+  p.innerHTML = `<h2 id = "newGame" >Start New Game</h2>`
+  p.style.backgroundColor = "black"
+  p.style.padding = "15px"
+  remaning.innerHTML = "0"
+
+  startOver.appendChild(p);
+  playGame = false;
+  newGame();
+
+}
+
+//Task 4 : for new Game
+function newGame(){
+  const newGame = document.querySelector('#newGame');
+  newGame.addEventListener("click", function(e){
+    randomNumber = parseInt((Math.random() *100)+1);
+    prevGuess = [];
+    numGuess =1;
+    guessSlot.innerHTML = ""
+    remaning.innerHTML = `${11 - numGuess}`
+    userInput.removeAttribute("disabled")
+    submit.removeAttribute("disabled")
+    startOver.removeChild(p)
+    displayMessage("");
+    playGame = true;
+  })
+}
+
+
+```
