@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chai aur code</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(language){
+        const li = document.createElement("li");
+        li.innerHTML = language;
+
+        const parent = document.querySelector(".language");
+        parent.appendChild(li);
+
+    }
+    addLanguage("java")
+
+    function addLanguageOptimized(language){
+        const li =  document.createElement("li");
+        // here this line optimizes our code as we are directly appending a node element
+        const text = document.createTextNode(language);
+        li.appendChild(text);
+
+        const parent = document.querySelector(".language");
+        parent.appendChild(li);
+
+    }   
+    addLanguageOptimized("TypeScript")
+
+    //Edit
+    const secondli = document.querySelector("li:nth-child(2)");
+    // secondli.innerHTML = "Python" // direct  change not not optimized
+    const newli = document.createElement("li");
+    newli.textContent = "Python"
+    // we need to replace 2 languageso we cant use append  here
+    secondli.replaceWith(newli);
+
+    //lets try to replace the first li i.e, javaScript
+    const firstLi = document.querySelector("li:nth-child(1)");
+    const replacedli = document.createElement("li");
+    replacedli.appendChild(document.createTextNode("Go-lang"))
+    // new lets replace the element
+    firstLi.replaceWith(replacedli);
+
+    // remove
+    const lastLang = document.querySelector("li:last-child");
+    lastLang.remove();
+</script>
+</html>
