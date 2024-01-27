@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images" style="display: flex; flex-direction:row;justify-content: space-between;">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <!-- <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" onclick="console.log('i AM an owl')" ></li> -->
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+//we do not use this beacuse it gives us very less features
+// document.getElementById("owl").onclick = function(){
+//     alert("I am an owl");
+// }
+// There were many methods which do the same thing earlier (QUITE  outdated)
+// attachEvent()
+// jQuery - on
+
+
+//Optimal and mostly used approach 
+// document.getElementById("owl").addEventListener("click",function(){},false) // by default false(Event Bubling)
+// document.getElementById("owl").addEventListener("click",function(){
+//     alert("I am an owl");
+// }) 
+
+//Things to learn
+// type , timestamp , defaultPrevented
+//target , toElement , srcElement , currentTarget 
+//clientX , clientY , screenX , screenY
+// altkey,ctrlkey ,shiftkey , keycode
+
+// document.getElementById("owl").addEventListener("click",function(e){
+//     console.log(e);
+// }) 
+
+//Event propogation ke 2 context hota hain event bubling(false) and event capturing(true)
+//Event buling(false) the propogation or execution of events is done from inside to outside (like a bubble goes from low to high)
+//Event capturing the propogation or execution of events is done from  outside to inside (from top to bottom)
+
+document.getElementById("images").addEventListener("click",function(e){
+    console.log("ul is clicked");
+},false) 
+document.getElementById("owl").addEventListener("click",function(e){
+    console.log("owl is clicked");
+    e.stopPropagation(); // to stop the buble from propogating above we use this to limit its area
+},false) 
+//Note in case of event capture if we apply   e.stopPropagation(); we can stop in from moving down (takes top)
+
+</script>
+</html>
