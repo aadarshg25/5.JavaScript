@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Async JS</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout(function (){
+    //     console.log("Aadarsh is sad !");
+    // },2000)
+
+    // const sad = function (){
+    //     console.log("Aadarsh is sad !");
+    // };
+
+
+    const changeText = function(){
+        document.querySelector("h1").innerHTML = "Aadarsh is Happy !";
+    }
+    const changeMe = setTimeout(changeText ,2000)
+
+    // To use clearTimeout we need the reference of the timeout we want to stop
+   // clearTimeout(changeMe); // if we run like this text will never change
+
+   //Now if click on stop before changing or timeout it will stop
+   document.querySelector("button").addEventListener("click",function(){
+    clearTimeout(changeMe);
+   },false)
+
+
+
+
+</script>
+</html>
