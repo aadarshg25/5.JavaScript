@@ -49,14 +49,38 @@
 //Event buling(false) the propogation or execution of events is done from inside to outside (like a bubble goes from low to high)
 //Event capturing the propogation or execution of events is done from  outside to inside (from top to bottom)
 
-document.getElementById("images").addEventListener("click",function(e){
-    console.log("ul is clicked");
-},false) 
-document.getElementById("owl").addEventListener("click",function(e){
-    console.log("owl is clicked");
-    e.stopPropagation(); // to stop the buble from propogating above we use this to limit its area
-},false) 
+// document.getElementById("images").addEventListener("click",function(e){
+//     console.log("ul is clicked");
+// },false) 
+// document.getElementById("owl").addEventListener("click",function(e){
+//     console.log("owl is clicked");
+//     e.stopPropagation(); // to stop the buble from propogating above we use this to limit its area
+// },false) 
 //Note in case of event capture if we apply   e.stopPropagation(); we can stop in from moving down (takes top)
+
+// TO prevent the default behaviour of a element we use preventDefault()
+// document.getElementById("google").addEventListener("click",function (e){
+//     e.preventDefault();
+//     e.stopPropagation();
+//     console.log("google is clicked");
+// })
+
+//Task : remove the image(with li) which  is clicked
+document.getElementById("images").addEventListener("click",function(e){
+    // console.log(e.target.parentNode); // we need to find the parent as we are removing the whole li element
+    // const removeIt = e.target.parentNode;
+    // removeIt.remove();
+    // we can also use this in place of above method for removing
+    // removeIt.parentNode.removeChild(removeIt);
+
+    // if we do by above method it will rmove whole ul we click on li so to remve this we put some checks
+    console.log(e.target.tagName);
+    if(e.target.tagName === "IMG"){
+        const removeIt = e.target.parentNode;
+        removeIt.remove();
+    }
+
+},false)
 
 </script>
 </html>
