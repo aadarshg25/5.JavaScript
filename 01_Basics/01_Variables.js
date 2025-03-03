@@ -20,6 +20,9 @@ because of block scope and functional scope
 Function-Scoped (var): If a variable is declared with var inside a function, it is confined to that function's scope and cannot be accessed outside of it.
 If var is declared outside of any function, it becomes globally scoped and can be accessed from anywhere in the code.
 
+var is function-scoped: It is accessible throughout the function in which it is declared, even outside a block {}.
+let is block-scoped: It is only accessible inside the block {} where it is declared.
+
 let:
 
 Block-scoped: A let variable is only accessible within the block, statement, or expression in which it is declared.
